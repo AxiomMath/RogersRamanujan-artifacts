@@ -1,0 +1,499 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+\begin{document}
+
+\section*{Chapter 9: Euler's identities and Jacobi Triple Product Identity}
+
+\subsection{Jacobi's Triple Product Identity}
+
+Let $q$ and $z$ be complex numbers such that $|q| < 1$. One of the most elegant
+identities involving $q$ and $z$ is perhaps Jacobi's Triple Product Identity given by
+\begin{equation}
+\sum_{j=-\infty}^{\infty} q^{j^2} z^j = \prod_{j=1}^{\infty} (1 + zq^{2j-1})(1 + z^{-1}q^{2j-1})(1 - q^{2j}).
+\tag{9.1}
+\end{equation}
+
+There are several proofs of (9.1). In this chapter, we will present an elementary
+proof due to G.E.\ Andrews. Before we proceed with the proof of (9.1), we give
+a few interesting results that follow from this identity.
+
+\begin{example}
+Let $z = 1$ in (9.1). We immediately obtain a product representation
+of the generating function for squares, namely,
+\[
+\sum_{j=-\infty}^{\infty} q^{j^2} = \prod_{j=1}^{\infty} (1 + q^{2j-1})^2(1 - q^{2j}).
+\]
+We remark here that the squares $j^2 = 1, 4$ and $9$ for $j = 1, 2$ and $3$ can be viewed
+as the number of dots in a diagram.
+\end{example}
+
+\begin{example}
+Let $z = q$ in (9.1), followed by replacing $q$ by $q^{1/2}$. We find that
+\[
+\sum_{j=-\infty}^{\infty} q^{j(j+1)/2} = 2\prod_{j=1}^{\infty} (1 + q^j)^2(1 - q^j).
+\]
+The integers $j(j+1)/2 = 1, 3, 6$ for $j = 1, 2$ and $3$ can be viewed as the number
+of dots in a diagram.
+\end{example}
+
+\begin{example}
+Let $q$ be replaced by $q^{3/2}$, followed by letting $z = -q^{1/2}$. We
+immediately deduce from (9.1) that
+\begin{equation}
+\sum_{j=-\infty}^{\infty} (-1)^j q^{j(3j+1)/2} = \prod_{j=1}^{\infty} (1 - q^{3j-1})(1 - q^{3j-2})(1 - q^{3j}) = \prod_{j=1}^{\infty} (1 - q^j),
+\tag{9.2}
+\end{equation}
+where the last equality follows from the fact that a positive integer must be of the
+form $3j - r$, with $r = 0, 1$ or $2$. Note that by replacing $j$ by $-j$, we may write
+the left hand of the above series as
+\[
+\sum_{j=-\infty}^{\infty} (-1)^j q^{j(3j-1)/2}.
+\]
+The integers of the form $\omega(j) = j(3j-1)/2$, with $j \geq 1$, are known as pentagonal
+numbers. For $j = 1, 2$ and $3$, $\omega(j) = 1, 5$ and $12$.
+\end{example}
+
+\subsection{The terminating $q$-binomial Theorem}
+
+Let $n \geq 1$ be an integer. The binomial theorem states that
+\begin{equation}
+(1 + x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k
+\tag{9.3}
+\end{equation}
+where
+\begin{equation}
+\binom{n}{k} = \frac{n!}{k!(n-k)!}.
+\tag{9.4}
+\end{equation}
+
+There is a $q$-analogue of (9.3) and to describe this analogue, we first define the
+$q$-analogue of (9.4).
+
+\begin{definition}
+Let $(q)_0 = 1$ and let
+\[
+(q)_n = \prod_{j=1}^{n} (1 - q^j)
+\]
+and
+\begin{equation}
+\binom{n}{k}_q = \frac{(q)_n}{(q)_k (q)_{n-k}}.
+\tag{9.5}
+\end{equation}
+We also let
+\[
+(q)_\infty = \prod_{k=1}^{\infty} (1 - q^k).
+\]
+\end{definition}
+
+The expression in (9.5) is a $q$-analogue of (9.4) since
+\[
+\lim_{q \to 1^-} \binom{n}{k}_q = \lim_{q \to 1^-} \frac{(1-q)(1-q^2)\cdots(1-q^n)}{(1-q)^n} \cdot \frac{(1-q)^k}{(q)_k} \cdot \frac{(1-q)^{n-k}}{(q)_{n-k}} = \binom{n}{k}.
+\]
+
+Observe further that the expressions for (9.4) and (9.5) motivate us to view the
+$q$-analogue of $n!$ as $(q)_n$, even though $(q)_n$ does not approach $n!$ as $q$ approaches
+$1^-$.
+
+The $q$-binomial coefficient has several interesting properties. For example, one
+can verify that
+\begin{equation}
+\binom{n}{k}_q = q^k \binom{n-1}{k}_q + \binom{n-1}{k-1}_q
+\tag{9.6}
+\end{equation}
+and
+\begin{equation}
+\binom{n}{k}_q = \binom{n-1}{k}_q + q^{n-k} \binom{n-1}{k-1}_q.
+\tag{9.7}
+\end{equation}
+
+When $q$ approaches $1^-$, both (9.6) and (9.7) reduce to the well known relation
+\[
+\binom{n}{k} = \binom{n-1}{k} + \binom{n-1}{k-1}.
+\]
+
+By (9.6), (9.7) and mathematical induction, we deduce that $\binom{n}{k}_q$ is a polynomial
+in $q$. This is analogous to the fact that $\binom{n}{k}$ is an integer.
+
+\begin{theorem}
+Let $n$ be a positive integer, $x$ and $q$ be independent variables. Then
+\begin{equation}
+(1+x)(1+xq)\cdots(1+xq^{n-1}) = \sum_{k=0}^{n} \binom{n}{k}_q q^{k(k-1)/2} x^k.
+\tag{9.8}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+We follow the approach of G.\ P\'olya and G.L.\ Alexanderson. Denote
+$f(x) = (1+x)(1+xq)\cdots(1+xq^{n-1})$.
+Note that
+\[
+(1+x)f(xq) = (1+x)(1+xq)\cdots(1+xq^{n-1})(1+xq^n) = f(x)(1+xq^n).
+\]
+If we write $f(x) = \sum_{k=0}^{n} Q_k x^k$,
+where $Q_k$ is a function of $q$, then
+\[
+(1+x)\left(\sum_{k=0}^{n} q^k Q_k x^k\right) = (1+xq^n)\left(\sum_{k=0}^{n} Q_k x^k\right).
+\]
+Comparing the coefficient of $x^k$ on both sides, we deduce that
+\[
+q^k Q_k + q^{k-1} Q_{k-1} = Q_k + q^n Q_{k-1},
+\]
+which implies that
+\[
+(1-q^k) Q_k = q^{k-1}(1-q^{n-k+1}) Q_{k-1}.
+\]
+Hence, we find that
+\begin{equation}
+Q_k = q^{k-1} \frac{(1-q^{n-k+1})}{(1-q^k)} Q_{k-1}.
+\tag{9.9}
+\end{equation}
+Observing that $Q_0 = 1$ and iterating (9.9), we deduce that
+\[
+Q_k = q^{(k-1)+(k-2)+\cdots+2+1} \frac{(1-q^{n-k+1})(1-q^{n-k+2})\cdots(1-q^n)}{(1-q^k)(1-q^{k-1})\cdots(1-q^2)(1-q)} Q_0 = q^{k(k-1)/2} \binom{n}{k}_q.
+\]
+This completes the proof of (9.8).
+\end{proof}
+
+\subsection{Two identities of Euler}
+
+In this section, we derive two identities due to L.\ Euler. These identities may be
+viewed as analogues of the identity
+\[
+e^x = \sum_{k=0}^{\infty} \frac{x^k}{k!}.
+\]
+
+We first rewrite (9.8) as
+\[
+(1+x)(1+xq)\cdots(1+xq^{n-1}) = \sum_{k=0}^{n} \frac{(q)_n}{(q)_k (q)_{n-k}} q^{k(k-1)/2} x^k.
+\]
+We may let $n \to \infty$ and deduce that
+\begin{equation}
+\prod_{k=1}^{\infty} (1 + xq^{k-1}) = \sum_{k=0}^{\infty} \frac{q^{k(k-1)/2}}{(q)_k} x^k.
+\tag{9.10}
+\end{equation}
+This identity is due to Euler. Note that if we take $(q)_n$ as the analogue of $n!$ and
+allow the numerator $q^{k(k-1)/2}$ to approach $1$, we could view the right hand side
+of (9.10) as an analogue of the power series expansion of $e^x$.
+
+Next, set $x = -1$ in (9.8) and multiply both sides by $(-1)^n/(q)_n$ to deduce that
+\begin{equation}
+0 = \sum_{k=0}^{n} \frac{(-1)^{n-1}}{(q)_{n-k}} \cdot \frac{q^{k(k-1)/2}}{(q)_k}, \quad n \geq 1.
+\tag{9.11}
+\end{equation}
+
+Note that the right hand side is of the form $\sum_{k=0}^{n} a_k b_{n-k}$, which is the coefficient
+of the $x^k$ in the expansion of $A(x)B(x)$ where
+\[
+A(x) = \sum_{m=0}^{\infty} \frac{(-1)^m x^m}{(q)_m} \quad\text{and}\quad B(x) = \sum_{m=0}^{\infty} \frac{q^{m(m-1)/2}}{(q)_m} x^m.
+\]
+By (9.11), we have
+\begin{equation}
+A(x)B(x) = 1.
+\tag{9.12}
+\end{equation}
+Using (9.10), we find that
+\begin{equation}
+\sum_{m=0}^{\infty} \frac{(-1)^m x^m}{(q)_m} = \prod_{k=1}^{\infty} \frac{1}{(1+xq^{k-1})}.
+\tag{9.13}
+\end{equation}
+Identity (9.13) is also due to Euler. By taking $(q)_n$ to be the analogue of $n!$, we
+find that the left hand side of (9.13) is the analogue of the power series expansion
+of $e^{-x}$. This shows that (9.12) is the analogue of $e^x \cdot e^{-x} = 1$.
+
+\subsection{Andrews' proof of Jacobi's Triple Product Identity}
+
+In this section, we will present Andrews' proof of Jacobi's Triple Product Identity.
+We first replace $q$ by $q^2$ in (9.10), we find that
+\begin{equation}
+\prod_{k=1}^{\infty} (1 + xq^{2k-2}) = \sum_{k=0}^{\infty} \frac{q^{k(k-1)}}{(q^2)_k} x^k.
+\tag{9.14}
+\end{equation}
+Replacing $x$ by $xq$ in (9.14), we find that
+\begin{equation}
+\prod_{k=1}^{\infty} (1 + xq^{2k-1}) = \sum_{k=0}^{\infty} \frac{q^{k^2}}{(q^2)_k} x^k.
+\tag{9.15}
+\end{equation}
+
+Observing that
+\[
+\frac{1}{(q^2)_k} = \prod_{m=1}^{\infty} \frac{1-q^{2m+2k}}{1-q^{2m}},
+\]
+we rewrite (9.15) as
+\[
+\prod_{k=1}^{\infty} (1+xq^{2k-1}) = \sum_{k=0}^{\infty} \prod_{m=1}^{\infty} \frac{(1-q^{2m+2k})}{(1-q^{2m})} q^{k^2} x^k
+= \prod_{m=1}^{\infty} \frac{1}{(1-q^{2m})} \sum_{k=0}^{\infty} \prod_{m=1}^{\infty} (1-q^{2m+2k}) q^{k^2} x^k
+\]
+\[
+= \prod_{m=1}^{\infty} \frac{1}{(1-q^{2m})} \sum_{k=-\infty}^{\infty} \prod_{m=1}^{\infty} (1-q^{2m+2k}) q^{k^2} x^k,
+\]
+where in the last equality, we used the fact that for $k < 0$,
+$\prod_{m=1}^{\infty} (1-q^{2m+2k}) = 0$.
+This implies that
+\begin{equation}
+\prod_{k=1}^{\infty} (1+xq^{2k-1})(1-q^{2k}) = \sum_{k=-\infty}^{\infty} \prod_{m=1}^{\infty} (1-q^{2m+2k}) q^{k^2} x^k.
+\tag{9.16}
+\end{equation}
+
+Next, using (9.14) with $x = -q^{2k+2}$, we find that
+\[
+\prod_{m=1}^{\infty} (1-q^{2m+2k}) = \sum_{\ell=0}^{\infty} \frac{(-1)^\ell q^{\ell^2+\ell+2k\ell}}{(q^2)_\ell}.
+\]
+
+Substituting this expression into the right hand side of (9.16), we deduce that
+\[
+\sum_{k=-\infty}^{\infty} q^{k^2} x^k \sum_{\ell=0}^{\infty} \frac{(-1)^\ell q^{\ell^2+\ell+2k\ell}}{(q^2)_\ell}
+= \sum_{\ell=0}^{\infty} \sum_{k=-\infty}^{\infty} \frac{(-q)^\ell q^{(k+\ell)^2}}{(q^2)_\ell} x^k
+\]
+\[
+= \sum_{\ell=0}^{\infty} \left(\sum_{k=-\infty}^{\infty} q^{(k+\ell)^2} x^{k+\ell}\right) \frac{(-q/x)^\ell}{(q^2)_\ell}
+= \left(\sum_{k=-\infty}^{\infty} q^{k^2} x^k\right)\left(\sum_{\ell=0}^{\infty} \frac{(-q/x)^\ell}{(q^2)_\ell}\right)
+\]
+\begin{equation}
+= \left(\sum_{k=-\infty}^{\infty} q^{k^2} x^k\right) \prod_{m=1}^{\infty} \frac{1}{(1+x^{-1}q^{2m-1})},
+\tag{9.17}
+\end{equation}
+where we have used
+\begin{equation}
+\sum_{\ell=0}^{\infty} \frac{(-q/x)^\ell}{(q^2)_\ell} = \prod_{m=1}^{\infty} \frac{1}{(1+x^{-1}q^{2m-1})}
+\tag{9.18}
+\end{equation}
+in the last equality. Identity (9.18) follows from (9.13) with $q$ replaced by $q^2$,
+followed by replacing $x$ by $-q/x$. Combining (9.16) and (9.17), we conclude the
+proof of Jacobi's Triple Product Identity.
+
+\begin{remark}
+Andrews' proof was motivated by Bellman's remark that there
+was no elementary proof of the Jacobi Triple Product identity. Andrews' proof
+is perhaps one of the first elementary proofs of the identity. Around the same
+time, P.K.\ Menon independently discovered a proof similar to that of Andrews.
+\end{remark}
+
+\subsection{Number of representations of $n$ as sums of two squares}
+
+We already know that $p \equiv 1 \pmod{4}$ if and only if $p$ is a sum of two squares.
+One way to see this explicitly is to use the formula
+\begin{equation}
+r_2(n) = 4\left(\sum_{\substack{d \mid n \\ d \equiv 1 \pmod{4}}} 1 - \sum_{\substack{d \mid n \\ d \equiv 3 \pmod{4}}} 1\right),
+\tag{9.19}
+\end{equation}
+where $r_2(n)$ is the number of ways of writing $n$ as a sum of two squares. Now if
+$p \equiv 1 \pmod{4}$ then $r_2(p) = 8$. If $p \equiv 3 \pmod{4}$ then $r_2(p) = 0$.
+
+In this section, we present M.D.\ Hirschhorn's proof of (9.19). Replace $z$ by
+$-x^2 q$ and $q^2$ by $q$ in (9.1) to deduce that
+\begin{equation}
+(x - x^{-1})\prod_{k=1}^{\infty}(1-x^2 q^k)(1-x^{-2}q^k)(1-q^k) = \sum_{k=-\infty}^{\infty}(-1)^k x^{2k+1} q^{k(k+1)/2}.
+\tag{9.20}
+\end{equation}
+
+We now set $k = 2n$ and $k = 2n+1$ in the sum on the right hand side and deduce that
+\begin{align*}
+(x - x^{-1})&\prod_{k=1}^{\infty}(1-x^2 q^k)(1-x^{-2}q^k)(1-q^k) \\
+&= \sum_{n=-\infty}^{\infty} x^{4n+1} q^{2n^2+n} - \sum_{n=-\infty}^{\infty} x^{4n-1} q^{2n^2-n} \\
+&= x\prod_{n=1}^{\infty}(1+x^4 q^{4n-1})(1+x^{-4}q^{4n-3})(1-q^{4n}) \\
+&\quad - x^{-1}\prod_{n=1}^{\infty}(1+x^4 q^{4n-3})(1+x^{-4}q^{4n-1})(1-q^{4n}),
+\end{align*}
+where the last equality is obtained using (9.1).
+
+Differentiating the last equality with respect to $x$ and setting $x = 1$, we deduce that
+\begin{equation}
+\prod_{n=1}^{\infty}(1-q^n)^3 = \prod_{n=1}^{\infty}(1+q^{4n-3})(1+q^{4n-1})(1-q^{4n})
+\tag{9.21}
+\end{equation}
+\[
+\times \left(1 - 4\sum_{n=1}^{\infty}\left(\frac{q^{4n-3}}{1+q^{4n-3}} - \frac{q^{4n-1}}{1+q^{4n-1}}\right)\right).
+\]
+
+This implies that (exercise)
+\begin{equation}
+\prod_{n=1}^{\infty}\frac{(1-q^{2n})(1-q^{2n-1})^2}{2} = 1 - 4\sum_{n=1}^{\infty}\left(\frac{q^{4n-3}}{1+q^{4n-3}} - \frac{q^{4n-1}}{1+q^{4n-1}}\right).
+\tag{9.22}
+\end{equation}
+
+Note that by replacing $q$ by $-q$, the left hand side of (9.22) can be identified
+using (9.1) as
+\[
+\left(\sum_{k=-\infty}^{\infty} q^{k^2}\right)^2
+\]
+which is $\sum_{n=0}^{\infty} r_2(n) q^n$.
+
+Comparing the coefficients of the last series with the right hand side of (9.22)
+(after replacing $q$ by $-q$), we arrive at (9.19).
+
+\subsection{The partition function $p(n)$}
+
+In this section, we will illustrate the use of Jacobi Triple Product Identity in the
+study of the partition function $p(n)$.
+
+\begin{definition}
+A partition of a positive integer $n$ is a representation of $n$ as
+a sum of non-decreasing positive integers. The partition function $p(n)$ is defined
+as the number of partitions of $n$.
+\end{definition}
+
+\begin{example}
+The integer 4 has the following partitions:
+\[
+4 = 1 + 3 = 2 + 2 = 1 + 1 + 2 = 1 + 1 + 1 + 1.
+\]
+The number of partitions of 4 is 5 and we write $p(4) = 5$.
+\end{example}
+
+Let $F(q) = \sum_{n=0}^{\infty} p(n) q^n$, where $p(0) := 1$. One of the most important identities
+associated with $p(n)$ is the following:
+
+\begin{theorem}
+For $|q| < 1$, we have
+\begin{equation}
+\prod_{k=1}^{\infty} \frac{1}{(1-q^k)} = \sum_{n=0}^{\infty} p(n) q^n.
+\tag{9.23}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+First let $q$ be real and that $0 < q < 1$. Consider the product
+$F_m(q) = \prod_{k=1}^{m} \frac{1}{(1-q^k)}$.
+If we expand the individual term in the product, we find that
+\[
+\prod_{k=1}^{m} \frac{1}{(1-q^k)} = (1 + q + q^{1+1} + q^{1+1+1} + \cdots)(1 + q^2 + q^{2+2} + q^{2+2+2} + \cdots)\cdots
+(1 + q^m + q^{m+m} + \cdots).
+\]
+We now expand the products on the right hand side and denote the power series as
+$\sum_{n=0}^{\infty} p_m(n) q^n$,
+where $p_m(0) = 1$. For a fixed $n \geq 1$, we note that $p_m(n)$ counts the number
+of representations of $n$ as a partition with parts not exceeding $m$.
+
+Now, observe that $p_m(n) \leq p(n)$ and if $n \leq m$, $p_m(n) = p(n)$.
+When $m$ approaches $\infty$, $p_m(n)$ approaches $p(n)$. Therefore,
+$1 + \sum_{n=1}^{m} p(n) q^n \leq F_m(q) \leq F(q)$,
+where $F(q) = \prod_{k=1}^{\infty} \frac{1}{(1-q^k)}$.
+Hence, $1 + \sum_{n=1}^{\infty} p(n) q^n$ converges for $0 < q < 1$ uniformly in $m$. Now,
+$\sum_{n=0}^{\infty} p_m(n) q^n \leq \sum_{n=0}^{\infty} p(n) q^n \leq F(q)$.
+Hence, $F_m(q) \leq \sum_{n=0}^{\infty} p(n) q^n \leq F(q)$
+and by letting $m \to \infty$, we complete the proof of the theorem.
+
+We then extend the above identity by analytic continuation to the unit disk $|q| < 1$.
+\end{proof}
+
+Now, observe from Theorem 9.5 that
+$1 = \left(\sum_{n=0}^{\infty} p(n) q^n\right) \cdot \left(\prod_{k=1}^{\infty}(1-q^k)\right)$.
+By Example 9.3, we conclude that
+\[
+\left(\sum_{n=0}^{\infty} p(n) q^n\right) \cdot \left(1 + \sum_{n=1}^{\infty}(-1)^n(q^{\omega(n)} + q^{\omega(-n)})\right) = 1
+\]
+where $\omega(n) = n(3n-1)/2$. Hence we deduce that for $N \geq 1$,
+\[
+\sum_{n+\omega(\pm m)=N} p(n)(-1)^m = 0.
+\]
+In other words,
+\[
+p(N) = \sum_{\substack{n+\omega(\pm m)=N \\ n \neq N}} (-1)^{m+1} p(n) = \sum_{m=1}^{N-1}(-1)^{m+1} p(N - \omega(\pm m)).
+\]
+
+Major MacMahon tabulated $p(n)$ up to $n = 200$ using the above recurrence
+formula for $p(n)$. From this table, S.\ Ramanujan observed the following amazing
+congruences
+\begin{align}
+p(5n+4) &\equiv 0 \pmod{5} \tag{9.24} \\
+p(7n+5) &\equiv 0 \pmod{7} \tag{9.25} \\
+p(11n+6) &\equiv 0 \pmod{11}. \tag{9.26}
+\end{align}
+
+In the next section, we will give a proof of (9.24).
+
+We end this section by giving another formula for computing $p(n)$. This formula
+relates $p(n)$ and $\sigma(n)$ defined by $\sigma(n) = \sum_{\ell \mid n} \ell$.
+
+By logarithmic differentiating (9.23), we find that
+\[
+\sum_{n=0}^{\infty} n\, p(n) q^n = \left(\sum_{n=1}^{\infty} \frac{nq^n}{1-q^n}\right) \cdot \left(\sum_{n=0}^{\infty} p(n) q^n\right),
+\]
+where we have used the fact that
+$\sum_{n=1}^{\infty} \frac{nq^n}{1-q^n} = \sum_{n=1}^{\infty}\sum_{m=1}^{\infty} nq^{mn} = \sum_{s=1}^{\infty}\sigma(s) q^s$.
+
+This immediately gives the recurrence formula for $p(n)$, namely,
+\[
+n\, p(n) = \sum_{\ell + m = n} \sigma(\ell) p(m).
+\]
+
+Next, instead of using (9.23), we start with
+$G(q) = \prod_{n=1}^{\infty}(1-q^n)$,
+then
+\begin{equation}
+q\frac{G'(q)}{G(q)} = \sum_{n=1}^{\infty}\sigma(n) q^n.
+\tag{9.27}
+\end{equation}
+
+Using (9.3), we may write
+$G'(q) = 1 + \sum_{\ell=1}^{\infty}(-1)^\ell \omega(\pm\ell) q^{\omega(\pm\ell)}$.
+
+Furthermore, by using (9.23), we conclude from (9.27) that
+\begin{equation}
+\sigma(n) = -\sum_{\ell=0}^{\infty}(-1)^\ell \frac{\ell(3\ell+1)}{2}\, p\!\left(n - \frac{\ell(3\ell+1)}{2}\right)
+\tag{9.28}
+\end{equation}
+\[
+- \sum_{\ell=0}^{\infty}(-1)^{\ell+1}\frac{(\ell+1)(3\ell+2)}{2}\, p\!\left(n - \frac{(\ell+1)(3\ell+2)}{2}\right).
+\]
+
+The above formula allows us to compute $\sigma(n)$ even if we do not know the prime
+factorization of $n$. In particular, if $\sigma(n) = n+1$ then $n$ is a prime.
+
+\begin{example}
+When $n = 19$, we note that $p(17) = 297$, $p(12) = 77$, $p(4) = 5$,
+$p(18) = 385$, $p(14) = 135$ and $p(7) = 15$. By (9.28), we conclude that
+\[
+\sigma(19) = 2 \cdot 297 - 7 \cdot 77 + 15 \cdot 5 + 385 - 5 \cdot 135 + 12 \cdot 15 = 20.
+\]
+Note that $\sigma(19) = 20$ and hence we conclude that 19 is a prime.
+\end{example}
+
+We have shown above that values of $p(n)$ are useful in testing if an integer $N$
+were a prime. It is therefore very useful if one has an explicit formula for $p(n)$.
+Such a formula which arises from a divergent series was first discovered by G.H.\
+Hardy and S.\ Ramanujan around 1918 and independently by J.V.\ Uspensky in
+1920. In 1937, H.\ Rademacher discovered an exact formula of $p(n)$ in terms of a
+convergent series. A.\ Selberg had also independently discovered the same formula
+around the same time.
+
+\subsection{Proof of $p(5n+4) \equiv 0 \pmod{5}$}
+
+In this section, we give Ramanujan's proof of (9.24). We will need another identity
+of Jacobi.
+
+First, recall (9.20), namely,
+\[
+(x - x^{-1})\prod_{k=1}^{\infty}(1-x^2 q^k)(1-x^{-2}q^k)(1-q^k) = \sum_{k=-\infty}^{\infty}(-1)^k x^{2k+1} q^{k(k+1)/2}.
+\]
+We write the right hand side of the above identity as
+$\sum_{k=0}^{\infty}(-1)^k(x^{2k+1} - x^{-(2k+1)}) q^{k(k+1)/2}$.
+Dividing both sides of the identity by $(x - x^{-1})$ and letting $x$ tends to 1, we find that
+\begin{equation}
+\prod_{n=1}^{\infty}(1-q^n)^3 = \sum_{n=0}^{\infty}(-1)^n(2n+1) q^{n(n+1)/2}.
+\tag{9.29}
+\end{equation}
+
+Ramanujan's original proof for the congruence for $p(5n+4)$ depends on (9.2) and (9.29). Write
+\[
+q\prod_{n=1}^{\infty}(1-q^n)^4 = \sum_{r=-\infty}^{\infty}\sum_{s=0}^{\infty}(-1)^{r+s}(2s+1) q^{1+r(3r+1)/2+s(s+1)/2}.
+\]
+When $1 + r(3r+1)/2 + s(s+1)/2$ is a multiple of 5, we find that
+$2(r+1)^2 + (2s+1)^2 \equiv 0 \pmod{5}$.
+But this can only happen when $2s+1$ is divisible by 5. Therefore, the coefficient
+$a_{5n}$ of the series expansion
+$q\prod_{n=1}^{\infty}(1-q^n)^4 = \sum_{k=0}^{\infty} a_k q^k$
+is divisible by 5.
+
+Hence, the coefficient of $q^{5N}$ of
+$q\prod_{k=1}^{\infty}\frac{(1-q^{5k})}{(1-q^k)}$
+is also $0 \pmod{5}$ and therefore,
+\[
+p(5n+4) \equiv 0 \pmod{5}.
+\]
+
+\end{document}
