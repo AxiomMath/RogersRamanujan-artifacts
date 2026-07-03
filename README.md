@@ -1,3 +1,5 @@
+[![Logo for Axiom Math](logo.svg)](https://axiommath.ai/)
+
 # Runs
 
 ## Jacobi Triple Product
