@@ -1,6 +1,9 @@
 [![Logo for Axiom Math](logo.svg)](https://axiommath.ai/)
 
-# Runs
+# Artifacts for "Formalized $q$-series: The Rogers-Ramanujan Identities and Beyond"
+
+These files accompany the arXiv paper
+[arXiv:2607.01544](https://arxiv.org/abs/2607.01544).
 
 ## Jacobi Triple Product
 
