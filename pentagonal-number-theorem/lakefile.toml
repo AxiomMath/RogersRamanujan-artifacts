@@ -1,20 +1,15 @@
 name = "pentagonal-number-theorem"
 defaultTargets = ["problem", "solution"]
 
-# [[require]]
-# name = "RogersRamanujan"
-# git = "https://github.com/AxiomMath/RogersRamanujan"
-# rev = "main"
-
 [[require]]
-name = "mathlib"
-scope = "leanprover-community"
-rev = "v4.30.0"
+name = "RogersRamanujan"
+git = "https://github.com/AxiomMath/RogersRamanujan"
+rev = "main"
 
 [[lean_lib]]
 name = "problem"
-roots = ["problem"]
+roots = ["problem_updated"]
 
 [[lean_lib]]
 name = "solution"
-roots = ["solution"]
+roots = ["solution_updated"]
