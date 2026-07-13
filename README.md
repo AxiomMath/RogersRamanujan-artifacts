@@ -5,6 +5,8 @@
 These files accompany the arXiv paper
 [arXiv:2607.01544](https://arxiv.org/abs/2607.01544).
 
+These artifacts were produced during the development of the `RogersRamanujan` library, so some of them may no longer compile with the current version. In that case, we provide manually updated versions of the artifacts with `updated` in their filenames. These updated versions are not listed separately below.
+
 ## Jacobi Triple Product
 
 - Input:
